@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Topics - Group Project</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    * {
+      font-family: 'Be Vietnam Pro', sans-serif;
+    }
+    .nav-item {
+      transition: all 0.3s ease;
+    }
+    .nav-item:active {
+      transform: scale(0.98);
+    }
+    .page-transition {
+      animation: fadeIn 0.3s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .member-card {
+      animation: slideIn 0.4s ease forwards;
+      opacity: 0;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(-20px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .member-card:nth-child(1) { animation-delay: 0.1s; }
+    .member-card:nth-child(2) { animation-delay: 0.2s; }
+    .member-card:nth-child(3) { animation-delay: 0.3s; }
+    .member-card:nth-child(4) { animation-delay: 0.4s; }
+    .member-card:nth-child(5) { animation-delay: 0.5s; }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-gradient-to-br from-slate-50 to-blue-50 text-slate-800 overflow-auto">
+  <div id="app" class="min-h-full w-full flex flex-col"><!-- Header -->
+   <header class="bg-white/80 backdrop-blur-md px-4 py-4 shadow-sm sticky top-0 z-50 border-b border-slate-200">
+    <div class="flex items-center justify-between max-w-lg mx-auto"><button id="backBtn" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:bg-slate-200 transition-colors hidden" aria-label="Go back">
+      <svg class="w-6 h-6 text-slate-600" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg></button>
+     <h1 id="headerTitle" class="text-xl font-bold text-center flex-1 text-slate-800">Obesity Topic.</h1>
+     <div class="w-10"></div>
+    </div>
+   </header><!-- Main Content -->
+   <main class="flex-1 p-4 max-w-lg mx-auto w-full"><!-- Home Page -->
+    <div id="homePage" class="page-transition">
+     <div class="text-center mb-6">
+      <p class="text-slate-600 font-medium text-lg">Group 3 - Debate</p>
+      <p class="text-slate-500 text-sm">Project 6: Obesity - Environment</p>
+     </div>
+     <nav class="space-y-3"><!-- Introduction --> <button class="nav-item w-full bg-white rounded-2xl p-4 flex items-center gap-4 shadow-md hover:shadow-lg border border-slate-200" data-page="introduction">
+       <div class="w-14 h-14 bg-gradient-to-r from-violet-100 to-purple-100 rounded-xl flex items-center justify-center text-2xl">
+        👥
+       </div>
+       <div class="text-left flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Introduction</h3>
+        <p class="text-slate-500 text-sm">Team members overview</p>
+       </div>
+       <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg></button> <!-- Unhealthy Food --> <button class="nav-item w-full bg-white rounded-2xl p-4 flex items-center gap-4 shadow-md hover:shadow-lg border border-slate-200" data-page="unhealthy-food">
+       <div class="w-14 h-14 bg-gradient-to-r from-red-100 to-orange-100 rounded-xl flex items-center justify-center text-2xl">
+        🍔
+       </div>
+       <div class="text-left flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Unhealthy Food</h3>
+        <p class="text-slate-500 text-sm">Processed and junk food</p>
+       </div>
+       <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg></button> <!-- Food Advertising --> <button class="nav-item w-full bg-white rounded-2xl p-4 flex items-center gap-4 shadow-md hover:shadow-lg border border-slate-200" data-page="food-advertising">
+       <div class="w-14 h-14 bg-gradient-to-r from-amber-100 to-yellow-100 rounded-xl flex items-center justify-center text-2xl">
+        📺
+       </div>
+       <div class="text-left flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Food Advertising</h3>
+        <p class="text-slate-500 text-sm">Marketing and media impact</p>
+       </div>
+       <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg></button> <!-- Mukbang Videos --> <button class="nav-item w-full bg-white rounded-2xl p-4 flex items-center gap-4 shadow-md hover:shadow-lg border border-slate-200" data-page="mukbang">
+       <div class="w-14 h-14 bg-gradient-to-r from-pink-100 to-rose-100 rounded-xl flex items-center justify-center text-2xl">
+        🎬
+       </div>
+       <div class="text-left flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Mukbang Videos</h3>
+        <p class="text-slate-500 text-sm">Eating broadcast content</p>
+       </div>
+       <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg></button> <!-- Obesogens --> <button class="nav-item w-full bg-white rounded-2xl p-4 flex items-center gap-4 shadow-md hover:shadow-lg border border-slate-200" data-page="obesogens">
+       <div class="w-14 h-14 bg-gradient-to-r from-cyan-100 to-blue-100 rounded-xl flex items-center justify-center text-2xl">
+        ⚗️
+       </div>
+       <div class="text-left flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Obesogens</h3>
+        <p class="text-slate-500 text-sm">Chemical compounds effects</p>
+       </div>
+       <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg></button> <!-- Stress --> <button class="nav-item w-full bg-white rounded-2xl p-4 flex items-center gap-4 shadow-md hover:shadow-lg border border-slate-200" data-page="stress">
+       <div class="w-14 h-14 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-xl flex items-center justify-center text-2xl">
+        😰
+       </div>
+       <div class="text-left flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Stress</h3>
+        <p class="text-slate-500 text-sm">Mental health and wellness</p>
+       </div>
+       <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg></button> <!-- Insulin --> <button class="nav-item w-full bg-white rounded-2xl p-4 flex items-center gap-4 shadow-md hover:shadow-lg border border-slate-200" data-page="insulin">
+       <div class="w-14 h-14 bg-gradient-to-r from-emerald-100 to-green-100 rounded-xl flex items-center justify-center text-2xl">
+        💉
+       </div>
+       <div class="text-left flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Insulin</h3>
+        <p class="text-slate-500 text-sm">Blood sugar regulation</p>
+       </div>
+       <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+       </svg></button>
+     </nav>
+    </div><!-- Introduction Page -->
+    <div id="introductionPage" class="page-transition hidden">
+     <div class="text-center mb-6">
+      <div class="w-20 h-20 bg-gradient-to-r from-violet-100 to-purple-100 rounded-full flex items-center justify-center text-4xl mx-auto mb-4 border-2 border-violet-200">
+       👥
+      </div>
+      <h2 class="text-2xl font-bold mb-2 text-slate-800">Team Members</h2>
+      <p class="text-slate-600 font-medium">Group 3 - Debate</p>
+      <p class="text-slate-500 text-sm">Project 6: Obesity - Environment</p>
+     </div>
+     <div class="space-y-3"><!-- Leader -->
+      <div class="member-card bg-gradient-to-r from-amber-50 to-yellow-50 border-2 border-amber-200 rounded-2xl p-4 flex items-center gap-4">
+       <div class="w-12 h-12 bg-gradient-to-r from-amber-400 to-yellow-400 rounded-full flex items-center justify-center text-xl">
+        👩‍🎓
+       </div>
+       <div class="flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Trịnh Thị Ngọc Linh</h3>
+        <p class="text-amber-600 text-sm font-medium">Team Leader</p>
+       </div>
+      </div><!-- Member 2 -->
+      <div class="member-card bg-white border border-slate-200 rounded-2xl p-4 flex items-center gap-4 shadow-sm">
+       <div class="w-12 h-12 bg-gradient-to-r from-pink-400 to-rose-400 rounded-full flex items-center justify-center text-xl">
+        👩‍🎓
+       </div>
+       <div class="flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Lê Nguyễn Thảo My</h3>
+        <p class="text-slate-500 text-sm">Team Member</p>
+       </div>
+      </div><!-- Member 3 -->
+      <div class="member-card bg-white border border-slate-200 rounded-2xl p-4 flex items-center gap-4 shadow-sm">
+       <div class="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full flex items-center justify-center text-xl">
+        👨‍🎓
+       </div>
+       <div class="flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Nguyễn Tiểu Long</h3>
+        <p class="text-slate-500 text-sm">Team Member</p>
+       </div>
+      </div><!-- Member 4 -->
+      <div class="member-card bg-white border border-slate-200 rounded-2xl p-4 flex items-center gap-4 shadow-sm">
+       <div class="w-12 h-12 bg-gradient-to-r from-emerald-400 to-green-400 rounded-full flex items-center justify-center text-xl">
+        👨‍🎓
+       </div>
+       <div class="flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Nguyễn Minh Quân</h3>
+        <p class="text-slate-500 text-sm">Team Member</p>
+       </div>
+      </div><!-- Member 5 -->
+      <div class="member-card bg-white border border-slate-200 rounded-2xl p-4 flex items-center gap-4 shadow-sm">
+       <div class="w-12 h-12 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full flex items-center justify-center text-xl">
+        👨‍🎓
+       </div>
+       <div class="flex-1">
+        <h3 class="font-semibold text-lg text-slate-800">Nguyễn Minh Khang</h3>
+        <p class="text-slate-500 text-sm">Team Member</p>
+       </div>
+      </div>
+     </div>
+    </div><!-- Generic Content Pages -->
+    <div id="contentPage" class="page-transition hidden">
+     <div class="text-center mb-6">
+      <div id="contentIcon" class="w-20 h-20 rounded-full flex items-center justify-center text-4xl mx-auto mb-4 border-2"></div>
+      <h2 id="contentTitle" class="text-2xl font-bold mb-2 text-slate-800"></h2>
+      <p id="contentSubtitle" class="text-slate-500"></p>
+     </div>
+     <div class="bg-white border border-slate-200 rounded-2xl p-6 text-center shadow-sm">
+      <div class="text-6xl mb-4">
+       📝
+      </div>
+      <h3 class="text-xl font-semibold mb-2 text-slate-800">Content Coming Soon</h3>
+      <p class="text-slate-500">This section will be updated later. Please check back soon!</p>
+     </div>
+    </div>
+   </main><!-- Footer -->
+   <footer class="bg-white/50 backdrop-blur-sm px-4 py-3 text-center border-t border-slate-200">
+    <p class="text-slate-400 text-sm">© 2026 Obesity Topic.</p>
+   </footer>
+  </div>
+  <script>
+    const defaultConfig = {
+      app_title: 'Health Topics',
+      team_name: 'Group Project',
+      primary_color: '#3b82f6',
+      background_color: '#f8fafc',
+      text_color: '#1e293b',
+      surface_color: '#ffffff',
+      accent_color: '#8b5cf6'
+    };
+
+    let currentPage = 'home';
+
+    const pageData = {
+      'unhealthy-food': {
+        icon: '🍔',
+        gradient: 'from-red-100 to-orange-100',
+        borderColor: 'border-red-200',
+        title: 'Unhealthy Food',
+        subtitle: 'Processed and junk food'
+      },
+      'food-advertising': {
+        icon: '📺',
+        gradient: 'from-amber-100 to-yellow-100',
+        borderColor: 'border-amber-200',
+        title: 'Food Advertising',
+        subtitle: 'Marketing and media impact'
+      },
+      'mukbang': {
+        icon: '🎬',
+        gradient: 'from-pink-100 to-rose-100',
+        borderColor: 'border-pink-200',
+        title: 'Mukbang Videos',
+        subtitle: 'Eating broadcast content'
+      },
+      'obesogens': {
+        icon: '⚗️',
+        gradient: 'from-cyan-100 to-blue-100',
+        borderColor: 'border-cyan-200',
+        title: 'Obesogens',
+        subtitle: 'Chemical compounds effects'
+      },
+      'stress': {
+        icon: '😰',
+        gradient: 'from-indigo-100 to-purple-100',
+        borderColor: 'border-indigo-200',
+        title: 'Stress',
+        subtitle: 'Mental health and wellness'
+      },
+      'insulin': {
+        icon: '💉',
+        gradient: 'from-emerald-100 to-green-100',
+        borderColor: 'border-emerald-200',
+        title: 'Insulin',
+        subtitle: 'Blood sugar regulation'
+      }
+    };
+
+    function showPage(pageName) {
+      const homePage = document.getElementById('homePage');
+      const introPage = document.getElementById('introductionPage');
+      const contentPage = document.getElementById('contentPage');
+      const backBtn = document.getElementById('backBtn');
+      const headerTitle = document.getElementById('headerTitle');
+
+      homePage.classList.add('hidden');
+      introPage.classList.add('hidden');
+      contentPage.classList.add('hidden');
+
+      if (pageName === 'home') {
+        homePage.classList.remove('hidden');
+        backBtn.classList.add('hidden');
+        headerTitle.textContent = window.elementSdk?.config?.app_title || defaultConfig.app_title;
+      } else if (pageName === 'introduction') {
+        introPage.classList.remove('hidden');
+        backBtn.classList.remove('hidden');
+        headerTitle.textContent = 'Introduction';
+      } else if (pageData[pageName]) {
+        const data = pageData[pageName];
+        contentPage.classList.remove('hidden');
+        backBtn.classList.remove('hidden');
+        headerTitle.textContent = data.title;
+        
+        document.getElementById('contentIcon').textContent = data.icon;
+        document.getElementById('contentIcon').className = `w-20 h-20 bg-gradient-to-r ${data.gradient} rounded-full flex items-center justify-center text-4xl mx-auto mb-4 border-2 ${data.borderColor}`;
+        document.getElementById('contentTitle').textContent = data.title;
+        document.getElementById('contentSubtitle').textContent = data.subtitle;
+      }
+
+      currentPage = pageName;
+    }
+
+    // Navigation event listeners
+    document.querySelectorAll('.nav-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const page = btn.dataset.page;
+        showPage(page);
+      });
+    });
+
+    document.getElementById('backBtn').addEventListener('click', () => {
+      showPage('home');
+    });
+
+    // Element SDK initialization
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange: async (config) => {
+          const title = config.app_title || defaultConfig.app_title;
+          const teamName = config.team_name || defaultConfig.team_name;
+
+          if (currentPage === 'home') {
+            document.getElementById('headerTitle').textContent = title;
+          }
+          document.getElementById('teamNameDisplay').textContent = teamName;
+        },
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.primary_color || defaultConfig.primary_color,
+              set: (value) => {
+                config.primary_color = value;
+                window.elementSdk.setConfig({ primary_color: value });
+              }
+            },
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: undefined,
+          fontSizeable: undefined
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['app_title', config.app_title || defaultConfig.app_title],
+          ['team_name', config.team_name || defaultConfig.team_name]
+        ])
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bee269f8013c7c6',t:'MTc2ODU3MjE1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
